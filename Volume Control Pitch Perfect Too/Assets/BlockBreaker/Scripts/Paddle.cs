@@ -7,9 +7,14 @@ public class Paddle : MonoBehaviour {
     private const float LOUDNESS_SENSIBILITY = 50, THRESHOLD = 0.1f;
     [SerializeField] GameObject left, right;
     private GameObject bumper;
-
+    private float paddlex, paddley, paddlez, leftx, rightx;
     private void Start() {
         bumper = gameObject;
+        leftx = left.transform.position.x;
+        rightx = right.transform.position.x;
+        paddlex = bumper.transform.position.x;
+        paddley = bumper.transform.position.y;
+        paddlez = bumper.transform.position.z;
     }
 
     private void FixedUpdate() {
@@ -22,10 +27,10 @@ public class Paddle : MonoBehaviour {
 
         if (loudness < THRESHOLD) {
             loudness = 0;
-            Vector3.Lerp(bumper.transform.position, left.transform.position, Time.deltaTime);
+            Vector2.Lerp(bumper.transform.position, left.transform.position, Time.deltaTime);
         }
         else {
-            Vector3.Lerp(bumper.transform.position, right.transform.position, Time.deltaTime * loudness);
+            Vector2.Lerp(bumper.transform.position, right.transform.position, Time.deltaTime * loudness);
         }
     }
     
