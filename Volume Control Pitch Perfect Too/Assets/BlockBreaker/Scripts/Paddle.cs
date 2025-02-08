@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour {
     public AudioDetection detector;
-    private const float LOUDNESS_SENSIBILITY = 5, THRESHOLD = 0.1f;
+    private const float LOUDNESS_SENSIBILITY = 50, THRESHOLD = 0.1f;
     [SerializeField] GameObject left, right;
     private GameObject bumper;
 
@@ -15,12 +15,17 @@ public class Paddle : MonoBehaviour {
     private void FixedUpdate() {
         float loudness = detector.GetLoudnessFromMicrophone() * LOUDNESS_SENSIBILITY;
 
+        if(loudness > THRESHOLD)
+        {
+            print(loudness);
+        }
+
         if (loudness < THRESHOLD) {
             loudness = 0;
-            Mathf.Lerp(bumper.transform.position.x, left.transform.position.x, Time.deltaTime * loudness);
+            Vector3.Lerp(bumper.transform.position, left.transform.position, Time.deltaTime);
         }
         else {
-            Mathf.Lerp(bumper.transform.position.x, right.transform.position.x, Time.deltaTime * loudness);
+            Vector3.Lerp(bumper.transform.position, right.transform.position, Time.deltaTime * loudness);
         }
     }
     

@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detector: {fileID: 407066334}
   left: {fileID: 1632976665}
-  right: {fileID: 1632976665}
+  right: {fileID: 978784609}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
