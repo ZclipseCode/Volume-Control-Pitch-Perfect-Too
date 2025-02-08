@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Paddle : MonoBehaviour {
@@ -27,10 +28,10 @@ public class Paddle : MonoBehaviour {
 
         if (loudness < THRESHOLD) {
             loudness = 0;
-            Vector2.Lerp(bumper.transform.position, left.transform.position, Time.deltaTime);
+            bumper.transform.position = Vector2.Lerp(bumper.transform.position, left.transform.position, Time.deltaTime);
         }
         else {
-            Vector2.Lerp(bumper.transform.position, right.transform.position, Time.deltaTime * loudness);
+            bumper.transform.position = Vector2.Lerp(bumper.transform.position, right.transform.position, Time.deltaTime * loudness);
         }
     }
     
