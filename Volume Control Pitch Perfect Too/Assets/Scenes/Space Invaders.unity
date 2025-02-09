@@ -2564,7 +2564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1294939415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4266,7 +4266,7 @@ MonoBehaviour:
   timer: 0
   winText: {fileID: 1541557993}
   stupidLose: {fileID: 1439296332}
-  stupidBack: {fileID: 1193853450}
+  stupidBack: {fileID: 1294939414}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
