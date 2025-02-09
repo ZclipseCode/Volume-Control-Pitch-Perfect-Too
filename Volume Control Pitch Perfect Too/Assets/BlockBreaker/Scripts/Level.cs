@@ -16,7 +16,7 @@ public class Level : MonoBehaviour {
         Block.Block_Destroyed_Event += BlockBroken;
         KillFloor.Ball_Die_Event += BallLost;
         foreach (Transform child in gameObject.transform) {
-            if(child.name == "Block") {
+            if(child.name.Contains("Block")) {
                 blocks++;
             }
         }
