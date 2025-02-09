@@ -20,12 +20,6 @@ public class Paddle : MonoBehaviour {
 
     private void FixedUpdate() {
         float loudness = detector.GetLoudnessFromMicrophone() * LOUDNESS_SENSIBILITY;
-
-        if(loudness > THRESHOLD)
-        {
-            print(loudness);
-        }
-
         if (loudness < THRESHOLD) {
             loudness = 0;
             bumper.transform.position = Vector2.Lerp(bumper.transform.position, left.transform.position, Time.deltaTime);
