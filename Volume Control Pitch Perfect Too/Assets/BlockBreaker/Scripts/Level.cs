@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class Level : MonoBehaviour {
     private int blocks;
     private int lives;
     [SerializeField] GameObject win_lose_screen;
+    [SerializeField] TMP_Text lives_text;
 
     private void Start() {
-        lives = 3;
+        lives = 5;
+        UpdateLives();
         Block.Block_Destroyed_Event += BlockBroken;
         KillFloor.Ball_Die_Event += BallLost;
         foreach (Transform child in gameObject.transform) {
@@ -28,12 +31,15 @@ public class Level : MonoBehaviour {
 
     private void BallLost(bool b) {
         lives--;
+        UpdateLives();
         if (lives == 0) {
             //show lose screen
         }
     }
 
-
+    private void UpdateLives() {
+        lives_text.text = lives + "x";
+    }
 
 
 }
