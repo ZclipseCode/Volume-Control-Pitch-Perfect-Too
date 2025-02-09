@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: 34c74f291807bfc4196c1faf5da7f551
+  - enabled: 1
+    path: Assets/Scenes/StreetCred.unity
+    guid: 8ee73678f7bce874b9c700c868db59eb
+  - enabled: 1
+    path: Assets/Scenes/Breakout.unity
+    guid: a2901bf9fba07bc47b0b82e3eb5d13f2
+  - enabled: 1
+    path: Assets/Scenes/Space Invaders.unity
+    guid: af54b7cdd08894642ae8b895af3898d2
   m_configObjects: {}

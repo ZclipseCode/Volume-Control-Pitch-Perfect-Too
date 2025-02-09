@@ -9,6 +9,9 @@ public class invaderEnemy : MonoBehaviour
     private bool boolTwo = false;
     private bool boolThree = false;
 
+    //[SerializeField] GameObject loseText;
+    //[SerializeField] GameObject backButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,11 @@ public class invaderEnemy : MonoBehaviour
         {
             this.transform.position = new Vector3(this.transform.position.x - .5f, this.transform.position.y, this.transform.position.z);
             boolOne = true;
+        }
+
+        if(this.transform.position.y < -5f)
+        {
+            Shooting.lose();
         }
     }
 }

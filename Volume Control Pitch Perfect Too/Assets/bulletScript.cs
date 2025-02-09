@@ -24,6 +24,7 @@ public class bulletScript : MonoBehaviour
         if (collision.gameObject.tag == "GameController")
         {
             Destroy(collision.gameObject);
+            Shooting.points++;
             Destroy(gameObject);
         }
     }
