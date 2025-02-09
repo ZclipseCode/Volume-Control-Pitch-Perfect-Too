@@ -7,7 +7,7 @@ using TMPro;
 public class Level : MonoBehaviour {
     private int blocks;
     private int lives;
-    [SerializeField] GameObject win_lose_screen;
+    [SerializeField] GameObject win_screen, lose_screen;
     [SerializeField] TMP_Text lives_text;
 
     private void Start() {
@@ -25,7 +25,9 @@ public class Level : MonoBehaviour {
     private void BlockBroken(bool b) {
         blocks--;
         if(blocks == 0) {
-            //show win screen
+            KillFloor.Ball_Die_Event -= BallLost;
+            lives_text.text = "";
+            win_screen.SetActive(true);
         }
     }
 
@@ -33,7 +35,9 @@ public class Level : MonoBehaviour {
         lives--;
         UpdateLives();
         if (lives == 0) {
-            //show lose screen
+            Block.Block_Destroyed_Event -= BlockBroken;
+            lives_text.text = "";
+            lose_screen.SetActive(true);
         }
     }
 
