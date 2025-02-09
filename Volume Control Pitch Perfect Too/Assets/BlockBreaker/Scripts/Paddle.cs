@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,7 +6,7 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour {
     public AudioDetection detector;
-    private const float LOUDNESS_SENSIBILITY = 50, THRESHOLD = 0.1f;
+    [SerializeField] float LOUDNESS_SENSIBILITY = 50, THRESHOLD = 0.1f;
     [SerializeField] GameObject left, right;
     private GameObject bumper;
     private float paddlex, paddley, paddlez, leftx, rightx;
@@ -20,6 +21,10 @@ public class Paddle : MonoBehaviour {
 
     private void FixedUpdate() {
         float loudness = detector.GetLoudnessFromMicrophone() * LOUDNESS_SENSIBILITY;
+        
+        Debug.ClearDeveloperConsole();
+        print(Mathf.Round(loudness * 100) / 100);
+
         if (loudness < THRESHOLD) {
             loudness = 0;
             bumper.transform.position = Vector2.Lerp(bumper.transform.position, left.transform.position, Time.deltaTime);

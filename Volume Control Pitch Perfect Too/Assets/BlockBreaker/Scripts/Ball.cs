@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Ball : MonoBehaviour {
     private GameObject ball;
-    private const float BALL_SPEED = 2f, MAX_ANGLE = 60;
+    private float BALL_SPEED = 2f, MAX_ANGLE = 60;
     private Rigidbody2D rb;
     private Vector2 force;
     private float width;
@@ -30,6 +30,9 @@ public class Ball : MonoBehaviour {
         float speed = last_vel.magnitude;
         Vector3 direction = Vector3.Reflect(last_vel.normalized, collision.contacts[0].normal);
         rb.velocity = direction * Mathf.Max(BALL_SPEED, 0f);
-
+        if(BALL_SPEED < 4)
+        {
+            BALL_SPEED += .1f;
+        }
     }
 }
